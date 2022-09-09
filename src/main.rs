@@ -18,13 +18,13 @@ extern crate rocket;
 
 
 #[get("/probabilityOfUnitInjectorFail?<vin_number>")]
- fn get_fail_probability(vin_number: String) ->  Json<Value>{
+ fn get_fail_probability(VIN: String) ->  Json<Value>{
 
-            if vin_number.len() > 17 {
+            if VIN.len() > 17 {
                 Json(json!({
                     "error": "VIN number too long"
                 }))
-            }else if vin_number.len() < 17{
+            }else if VIN.len() < 17{
                 Json(json!({
                     "error": "VIN number too short"
                 }))
@@ -60,7 +60,7 @@ extern crate rocket;
                         let diesel_usage: f64 = (distance / 100.00) * fuelUsagePer100KM;
                         let diesel_usage_formatted = (diesel_usage * 100.0).round() / 100.0;
                         Json(json!({
-                            "fuelConsumption": diesel_usage_formatted
+                            "fuelUsage": diesel_usage_formatted
                         }))
                     }
                 }
