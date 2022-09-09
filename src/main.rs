@@ -17,7 +17,7 @@ extern crate rocket;
 
 
 
-#[get("/probabilityOfUnitInjectorFail?<vin_number>")]
+#[get("/probabilityOfUnitInjectorFail?<VIN>")]
  fn get_fail_probability(VIN: String) ->  Json<Value>{
 
             if VIN.len() > 17 {
