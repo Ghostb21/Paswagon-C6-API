@@ -12,20 +12,23 @@ API that helps getting consumption of diesel and probability of unit injector fa
 1) `/calculateDieselUsageForDistance` - calculates input in the URL request and returns a number - liters of used diesel per distance.
 
   It takes 3 query parameters: 
-  1) distance (in kilometers),
-  2) yearOfProduction (1995 - 2015),
-  3) fuelUsagePer100KM.
+  * distance (in kilometers),
+  * yearOfProduction (1995 - 2015),
+  * fuelUsagePer100KM.
     
     
     
   Example of URL request:
-  `/calculateDieselUsageForDistance?distance=21&yearOfProduction=2015&fuelUsagePer100KM=10    // returns 2.1`
+  `/calculateDieselUsageForDistance?distance=21&yearOfProduction=2015&fuelUsagePer100KM=10` returns `{"fuelConsumption":2.1}`
   
 2) `/probabilityOfUnitInjectorFail` - returns the probability of unit injector fail calculated on the basis of a meaningless VIN number.
 
   It takes 1 query parameter:
-    - VIN number (needs to contain exactly 17 characters)
+  * VIN number (needs to contain exactly 17 characters)
     
    Example of URL request:
-   `/probabilityOfUnitInjectorFail?vin_number=4Y1SL65848Z411439 // returns probability from 0.00(0%) to 1.00(100%)`
+   `/probabilityOfUnitInjectorFail?vin_number=4Y1SL65848Z411439` returns `{"failProbability":0.79}`
   
+
+If the value of any parameter will be invalid, it should return JSON with an error.
+Example: `{"error":"Distance must be equal or greater than 0."}`
