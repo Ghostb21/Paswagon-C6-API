@@ -1,8 +1,5 @@
 # Paswagon-C6-API
 
-API that helps getting consumption of diesel and probability of unit injector fail in the one and only PeopleCar Paswagon C6 (as JSON). <br/>
-Written in Rust + Rocket.
-
 ## How to start the project?
 1) Download and unzip code files,
 2) use the `cargo build` command inside the folder,
