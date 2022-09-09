@@ -18,16 +18,16 @@ Calculates input in the URL request and returns a number - liters of used diesel
     
     
   Example of URL request: <br/>
-  `/calculateDieselUsageForDistance?distance=21&yearOfProduction=2015&fuelUsagePer100KM=10` returns `{"fuelConsumption":2.1}`
+  `/calculateDieselUsageForDistance?distance=21&yearOfProduction=2015&fuelUsagePer100KM=10` returns `{"fuelUsage":2.1}`
   
 ### `/probabilityOfUnitInjectorFail`
 Returns the probability of unit injector fail calculated on the basis of a totally meaningless VIN number. Vary from 0.00 (0%) to 1.00 (100%).
 
   It takes 1 query parameter:
-  * VIN number (needs to contain **exactly** 17 characters)
+  * VIN (needs to contain **exactly** 17 characters)
     
    Example of URL request:<br/>
-   `/probabilityOfUnitInjectorFail?vin_number=4Y1SL65848Z411439` returns `{"failProbability":0.79}`
+   `/probabilityOfUnitInjectorFail?VIN=4Y1SL65848Z411439` returns `{"failProbability":0.79}`
   
 
 If the value of any parameter will be invalid, it should return JSON with an error.
